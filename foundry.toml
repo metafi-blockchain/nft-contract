@@ -6,6 +6,7 @@ src = "src"
 out = "out"
 libs = ["lib"]
 extra_output = ["storageLayout"]
-solc_version = "0.8.20"
-
+solc_version = "0.8.26"
+[rpc_endpoints]
+sepolia = "https://eth-sepolia.g.alchemy.com/v2/viXU37kdp6nJVji10bu7WkqYqT4teCkL"
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
