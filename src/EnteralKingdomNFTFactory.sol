@@ -11,9 +11,9 @@ contract EnteralKingdomNFTFactory2 {
     event Deployed(address addr);
 
     
-    function deploy(uint256 _salt, string calldata _name, string calldata _symbol) external returns (address) {
+    function deploy(uint256 _salt, string calldata _name, string calldata _symbol) public returns (address) {
         
-        require(nfts[_salt] != address(0), "Contracts exits");
+        require(nfts[_salt] == address(0), "Contracts exits");
 
         EnteralKingDomERC21 con =
             new EnteralKingDomERC21{salt: bytes32(_salt)}(_name, _symbol );
@@ -22,6 +22,7 @@ contract EnteralKingdomNFTFactory2 {
         nfts[_salt] = address(con);
         return address(con);
     }
+
     function getContractAddress(
         string calldata _name,
         string calldata _symbol,

@@ -6,7 +6,6 @@ import { EnteralKingdomNFTFactory2 } from "src/EnteralKingdomNFTFactory.sol";
 
 contract DeployEtherWallet is Script{
 
-
     function run() external returns (EnteralKingdomNFTFactory2 factory) {
     
         // uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
