@@ -8,7 +8,7 @@ contract EnteralKingdomNFTFactory2 is Ownable {
    
     constructor() Ownable(msg.sender) {}
 
-    mapping(uint => address) public nfts;
+    mapping(uint => address) private nfts;
     
     event Deployed(address addr);
 
@@ -43,6 +43,10 @@ contract EnteralKingdomNFTFactory2 is Ownable {
             type(EnteralKingDomERC21).creationCode,
             abi.encode(_owner, _name, _symbol)
         ); 
+    }
+
+    function getContract(uint256 _salt) public view returns (address) {
+        return nfts[_salt];
     }
 
     
