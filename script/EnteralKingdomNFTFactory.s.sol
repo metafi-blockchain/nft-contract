@@ -4,7 +4,7 @@ pragma solidity 0.8.26;
 import { Script } from "forge-std/Script.sol";
 import { EnteralKingdomNFTFactory2 } from "src/EnteralKingdomNFTFactory.sol";
 
-contract DeployEtherWallet is Script{
+contract EnteralKingdomNFTFactory is Script{
 
     function run() external returns (EnteralKingdomNFTFactory2 factory) {
     
