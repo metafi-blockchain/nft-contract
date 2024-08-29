@@ -12,7 +12,7 @@ contract EnteralKingDomERC21 is ERC721URIStorage, Ownable {
     event NFTMinted(address indexed recipient, uint256 tokenId, string uri);
     event NFTBurned(uint256 tokenId);
 
-    constructor(string memory  _name , string memory _symbol) ERC721(_name, _symbol) Ownable(msg.sender){
+    constructor(address _owner, string memory  _name , string memory _symbol) ERC721(_name, _symbol) Ownable(_owner){
         _tokenCounter = 0;
     }
     
@@ -27,5 +27,9 @@ contract EnteralKingDomERC21 is ERC721URIStorage, Ownable {
     function burn(uint256 tokenId) public onlyOwner {
         _burn(tokenId);
         emit NFTBurned(tokenId);
+    }
+
+    function tokenCounter() public view returns (uint256) {
+        return _tokenCounter;
     }
 }

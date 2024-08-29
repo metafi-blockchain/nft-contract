@@ -25,7 +25,7 @@ contract EnteralKingDomERC21Test is Test {
 
     function setUp() public {
         
-        erc721 = new EnteralKingDomERC21("MyNFT", "MNFT");
+        erc721 = new EnteralKingDomERC21(alice, "MyNFT", "MNFT");
         vm.label(address(erc721), "EnteralKingDomERC21");
     }
 
