@@ -2,13 +2,13 @@
 
 pragma solidity 0.8.26;
 import {Test, console2} from "forge-std/Test.sol";
-import {EnteralKingDomERC21} from '../src/EnteralKingDomERC21.sol';
+import {EnteralKingDomERC721} from '../src/EnteralKingDomERC721.sol';
 import {EnteralKingdomNFTFactory2} from   '../src/EnteralKingdomNFTFactory.sol';
 
 
 contract EnteralKingDomERC21Test is Test {
 
-    EnteralKingDomERC21  private  erc721;
+    EnteralKingDomERC721  private  erc721;
     EnteralKingdomNFTFactory2 private factory;
 
     address private constant owner = address(1);
@@ -35,7 +35,7 @@ contract EnteralKingDomERC21Test is Test {
 
         uint256 salt = 1;
         address n = factory.deploy(owner, salt, "EnteralKingdomNFT1", "EKL");
-        erc721 = EnteralKingDomERC21(n);
+        erc721 = EnteralKingDomERC721(n);
         vm.label(address(erc721), "EnteralKingdomNFT1");
 
     }

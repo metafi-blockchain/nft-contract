@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.26;
 
-import {EnteralKingDomERC21} from "./EnteralKingDomERC21.sol";
+import {EnteralKingDomERC721} from "./EnteralKingDomERC721.sol";
 import {Ownable} from "lib/openzeppelin-contracts/contracts/access/Ownable.sol";
 
 contract EnteralKingdomNFTFactory2 is Ownable {
@@ -17,8 +17,8 @@ contract EnteralKingdomNFTFactory2 is Ownable {
         
         require(nfts[_salt] == address(0), "Contracts exits");
 
-        EnteralKingDomERC21 con =
-            new EnteralKingDomERC21{salt: bytes32(_salt)}(_owner, _name, _symbol );
+        EnteralKingDomERC721 con =
+            new EnteralKingDomERC721{salt: bytes32(_salt)}(_owner, _name, _symbol );
         emit Deployed(address(con));
       
         nfts[_salt] = address(con);
@@ -40,7 +40,7 @@ contract EnteralKingdomNFTFactory2 is Ownable {
 
     function getByteCodeContract( address _owner, string calldata _name,  string calldata _symbol) public pure  returns (bytes memory) {
         return  abi.encodePacked(
-            type(EnteralKingDomERC21).creationCode,
+            type(EnteralKingDomERC721).creationCode,
             abi.encode(_owner, _name, _symbol)
         ); 
     }
